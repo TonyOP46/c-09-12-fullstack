@@ -79,10 +79,16 @@ const patchUsers = async(req, res, next)=>{
         const {id}=req.params;
         const {rol} = req.body;
         const patchUser = {rol}
-        const result = await userServices.patch(patchUser, id)
-        res.json({
-            message: "Rol Updated"
-        })
+        if(patchUser.rol === "client" || patchUser.rol ==="coach"){
+            const result = await userServices.patch(patchUser, id);
+            res.json({
+            message: "rol updated"
+            })
+        }else{
+            res.status(401).json({
+                message: "rol not found"
+            })
+        }
     } catch (error) {
         next({
             message: "Data Error",

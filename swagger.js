@@ -14,7 +14,11 @@ const options = {
   apis: [
     "./src/routes/auth.routes.js",
     "./src/routes/users.routes.js",
+    "./src/routes/rutines.routes.js",
+    "./src/routes/excercises.routes.js",
     "./src/models/users.models.js",
+    "./src/models/rutines.models.js",
+    "./src/models/excercise.models.js"
   ],
 };
 

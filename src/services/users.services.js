@@ -60,7 +60,7 @@ class userServices{
            let result = await Users.update(patchUser, {
             where: {id},
            })
-           return result
+            return result
         } catch (error) {
             throw error;
         }
