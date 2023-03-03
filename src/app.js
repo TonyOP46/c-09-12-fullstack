@@ -26,9 +26,7 @@ app.use(handleError)
 app.use(morgan('tiny'))
 app.use(cors())
 app.get('/', (req, res)=>{
-    res.json({
-        message: "Todo bien"
-    })
+    res.json("Todo bien")
     
 })
 
