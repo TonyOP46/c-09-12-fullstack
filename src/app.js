@@ -25,8 +25,10 @@ app.use(express.json())
 app.use(handleError)
 app.use(morgan('tiny'))
 app.use(cors())
-app.get('/', ()=>{
-    console.log("Todo bien")
+app.get('/', (req, res)=>{
+    res.json({
+        message: "Todo bien"
+    })
     
 })
 
