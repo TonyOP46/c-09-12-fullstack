@@ -1,5 +1,5 @@
 const {Router}=require('express')
-const { getUsers, getById, putUsers, postUsers, deleteUsers, patchUsers } = require('../controllers/users.controllers')
+const { getUsers, getById, putUsers, postUsers, deleteUsers, patchUsers, getUserRolClient } = require('../controllers/users.controllers')
 const authenticate = require('../middlewares/auth.middleware')
 
 
@@ -251,6 +251,7 @@ userRouter.get('/users/:id', authenticate,getById)
 userRouter.put('/users/:id', authenticate,putUsers)
 userRouter.delete('/users/:id', authenticate, deleteUsers)
 userRouter.patch('/users/:id', authenticate, patchUsers)
+userRouter.get('/users/:client', getUserRolClient)
 
 
 module.exports = userRouter;

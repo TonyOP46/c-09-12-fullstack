@@ -10,8 +10,8 @@ const Login = async (req, res, next) => {
     // null --> no se encuentra al usuario
     // { isValid, result }
     if (result) {
-      const { firstName, lastName, email, id, age } = result.result;
-      const user = { firstName, lastName, email, id, age };
+      const { firstName, lastName, email, id, rol } = result.result;
+      const user = { firstName, lastName, email, id, rol };
       const token = AuthServices.genToken(user);
       user.token = token;
       res.json({ ...user });

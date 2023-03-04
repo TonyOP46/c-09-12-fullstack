@@ -98,11 +98,27 @@ const patchUsers = async(req, res, next)=>{
     }
 }
 
+const getUserRolClient = async(req, res, next)=>{ 
+    try {
+        const client = req.params.client
+       const result = await userServices.getRolClient(client)
+       res.json(result)
+    } catch (error) {
+        next({
+            message: "Data Error",
+            status: 400,
+            errorContent: error
+        }) 
+    }
+
+}
+
 module.exports = {
     getUsers,
     getById,
     putUsers,
     postUsers,
     deleteUsers,
-    patchUsers
+    patchUsers,
+    getUserRolClient
 }

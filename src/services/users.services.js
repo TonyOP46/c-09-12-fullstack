@@ -1,4 +1,5 @@
 const { Users} = require("../models")
+const {Op} = require("sequelize")
 
 class userServices{
     static async get(){
@@ -18,7 +19,7 @@ class userServices{
             const result = await Users.findOne({
                 where: {id},
                 attributes: {
-                    exclude: ["createdAt", "updatedAt", "isCoach", "isAdmin"]
+                    exclude: ["createdAt", "updatedAt"]
                 }
             })
             return result
@@ -63,6 +64,19 @@ class userServices{
             return result
         } catch (error) {
             throw error;
+        }
+    }
+    static async getRolClient(client){
+        try {
+            const result = await Users.findAll({
+                where: {rol: client},
+                attributes: {
+                    exclude: ["createdAt", "updatedAt"]
+                }  
+            })
+            return result            
+        } catch (error) {
+            throw error
         }
     }
 }
