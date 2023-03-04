@@ -66,10 +66,10 @@ class userServices{
             throw error;
         }
     }
-    static async getRolClient(client){
+    static async getRolClient(rol){
         try {
             const result = await Users.findAll({
-                where: {rol: client},
+                where: {rol},
                 attributes: {
                     exclude: ["createdAt", "updatedAt"]
                 }  

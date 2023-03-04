@@ -251,7 +251,7 @@ userRouter.get('/users/:id', authenticate,getById)
 userRouter.put('/users/:id', authenticate,putUsers)
 userRouter.delete('/users/:id', authenticate, deleteUsers)
 userRouter.patch('/users/:id', authenticate, patchUsers)
-userRouter.get('/users/:client', getUserRolClient)
+userRouter.get('/users/rol/:rol', getUserRolClient)
 
 
 module.exports = userRouter;

@@ -100,9 +100,16 @@ const patchUsers = async(req, res, next)=>{
 
 const getUserRolClient = async(req, res, next)=>{ 
     try {
-        const client = req.params.client
-       const result = await userServices.getRolClient(client)
-       res.json(result)
+        const {rol} = req.body;
+        const result = await userServices.getRolClient(rol)
+        
+        if(result.rol == rol){
+            res.json(result)
+        }else{
+            res.status(400).json({
+                message: "Error"
+            })
+        }
     } catch (error) {
         next({
             message: "Data Error",
