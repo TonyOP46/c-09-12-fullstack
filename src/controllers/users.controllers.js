@@ -79,7 +79,7 @@ const patchUsers = async(req, res, next)=>{
         const {id}=req.params;
         const {rol} = req.body;
         const patchUser = {rol}
-        if(patchUser.rol === "client" || patchUser.rol ==="coach"){
+        if(patchUser.rol === "client" || patchUser.rol ==="coach" || patchUser.rol == "admin"){
             const result = await userServices.patch(patchUser, id);
             res.json({
             message: "rol updated"
@@ -98,26 +98,17 @@ const patchUsers = async(req, res, next)=>{
     }
 }
 
-const getUserRolClient = async(req, res, next)=>{ 
+const getRolClient = async(req, res, next)=>{
     try {
-        const {rol} = req.body;
-        const result = await userServices.getRolClient(rol)
-        
-        if(result.rol == rol){
-            res.json(result)
-        }else{
-            res.status(400).json({
-                message: "Error"
-            })
-        }
+        const result = await userServices.getClient()
+        res.json(result)
     } catch (error) {
         next({
             message: "Data Error",
             status: 400,
             errorContent: error
-        }) 
+        })
     }
-
 }
 
 module.exports = {
@@ -127,5 +118,5 @@ module.exports = {
     postUsers,
     deleteUsers,
     patchUsers,
-    getUserRolClient
+    getRolClient
 }

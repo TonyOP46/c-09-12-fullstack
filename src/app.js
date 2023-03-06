@@ -25,9 +25,8 @@ app.use(express.json())
 app.use(handleError)
 app.use(morgan('tiny'))
 app.use(cors())
-app.get('/', (req, res)=>{
-    res.json("Todo bien")
-    
+app.get('/', ()=>{
+    console.log("Todo bien")
 })
 
 app.use('/api/v1', userRouter)
