@@ -34,9 +34,9 @@ app.use('/api/v1', rutineRouter)
 app.use('/api/v1', authRouter)
 app.use('/api/v1', ExcerciseRouter)
 
-app.use('/',(req, res)=>{
-    res.json({
-        message: "Todo bien"
-    })
-})
+// app.use('/',(req, res)=>{
+//     res.json({
+//         message: "Todo bien"
+//     })
+// })
 module.exports = app
